@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/memkind
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -132,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/hbwmalloc.h
 %{_includedir}/memkind.h
 %{_includedir}/memkind_allocator.h
+%{_includedir}/memkind_deprecated.h
 %{_includedir}/pmem_allocator.h
 %{_pkgconfigdir}/memkind.pc
 %{_mandir}/man3/hbwmalloc.3*

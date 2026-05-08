@@ -1,0 +1,20 @@
+--- memkind-1.14.0/examples/memkind_cpp_allocator.cpp.orig	2023-01-01 00:00:00.000000000 +0000
++++ memkind-1.14.0/examples/memkind_cpp_allocator.cpp	2026-05-08 00:00:00.000000000 +0000
+@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
+         for (auto &el : fwlist) {
+             i--;
+             assert(el == i);
++            (void)el;
+         }
+
+         fwlist.clear();
+--- memkind-1.14.0/examples/fixed_cpp_allocator.cpp.orig	2023-01-01 00:00:00.000000000 +0000
++++ memkind-1.14.0/examples/fixed_cpp_allocator.cpp	2026-05-08 00:00:00.000000000 +0000
+@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
+         for (auto &el : fwlist) {
+             i--;
+             assert(el == i);
++            (void)el;
+         }
+
+         fwlist.clear();

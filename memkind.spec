@@ -5,13 +5,13 @@
 Summary:	User Extensible Heap Manager
 Summary(pl.UTF-8):	Rozszerzalny zarządca sterty
 Name:		memkind
-Version:	1.10.0
+Version:	1.14.0
 Release:	1
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/memkind/memkind/releases
 Source0:	https://github.com/memkind/memkind/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	30a59aec4c79a2504b6c0ec0ec5a070e
+# Source0-md5:	252ee2458d7830774ee0ac003f2140a1
 URL:		http://memkind.github.io/memkind
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -21,6 +21,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2.2
 BuildRequires:	numactl-devel
 BuildRequires:	unzip
+Patch0:		%{name}-unused-var-ndebug.patch
 %{?with_ndctl:Requires:	daxctl-libs >= 66}
 ExclusiveArch:	%{x8664} ppc64 ppc64le s390x aarch64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -81,6 +82,7 @@ Statyczne biblioteki Memkind.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
@@ -94,9 +96,7 @@ Statyczne biblioteki Memkind.
 	--disable-silent-rules \
 	--enable-tls
 
-%{__make}
-
-%{__make} checkprogs
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT

@@ -7,7 +7,7 @@ Summary:	User Extensible Heap Manager
 Summary(pl.UTF-8):	Rozszerzalny zarządca sterty
 Name:		memkind
 Version:	1.14.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/memkind/memkind/releases
